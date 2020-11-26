@@ -10,7 +10,12 @@ const Router = () => {
             <Stack.Screen name="Splash" component={Splash} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="WellcomeAuth" component={WellcomeAuth} />
+            <Stack.Screen 
+                name="WellcomeAuth" 
+                component={WellcomeAuth} 
+                options={{
+                    headerShown: false,
+            }} />
         </Stack.Navigator>
     )
 }
