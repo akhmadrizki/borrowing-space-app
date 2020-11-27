@@ -4,13 +4,16 @@ import { wellcomeAuth } from '../../assets';
 import { colors } from '../../utils';
 import ActionButton from './ActionButton';
 
-const WellcomeAuth = () => {
+const WellcomeAuth = ({navigation}) => {
+    const handleGoTo = screen => {
+        navigation.navigate(screen);
+    }
     return (
         <View style={styles.wrapper.page}>
             <Image source={wellcomeAuth} style={styles.wrapper.illustration} />
             <Text style={styles.text.wellcome}>Selamat Datang di Get-Food</Text>
-            <ActionButton desc="Silahkan Masuk Jika Anda Sudah Memiliki Account" title="Masuk" />
-            <ActionButton desc='Atau Silahkan Daftar Jika Anda Belum Memiliki Account' title="Daftar" />
+            <ActionButton desc="Silahkan Masuk Jika Anda Sudah Memiliki Account" title="Masuk" onPress={() => handleGoTo('Login')} />
+            <ActionButton desc='Atau Silahkan Daftar Jika Anda Belum Memiliki Account' title="Daftar" onPress={() => handleGoTo('Register')} />
         </View>
     )
 }
