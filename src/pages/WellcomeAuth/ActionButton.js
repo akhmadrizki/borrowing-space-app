@@ -15,12 +15,12 @@ const styles = {
     wrapper: {
         component: { 
             marginBottom: 43, 
-            maxWidth: 225 
+            maxWidth: 275 
         }
     },
     text: {
         desc: { 
-            fontSize: 10, 
+            fontSize: 14, 
             color: '#00B0FF', 
             textAlign: 'center', 
             paddingHorizontal: '15%', 

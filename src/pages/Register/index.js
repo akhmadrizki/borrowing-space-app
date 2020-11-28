@@ -1,8 +1,6 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { Button, Input } from '../../components';
-import { colors } from '../../utils';
-import { IconBack } from '../../assets';
 import { logoPage } from '../../assets';
 import ActionButton from './ActionButton';
 
@@ -12,7 +10,7 @@ const Register = ({navigation}) => {
     }
     return (
         <View style={styles.wrapper.pages}>
-            <Image source={IconBack} style={styles.iconBack} />
+            <Button type="icon" name="back" onPress={() => navigation.goBack()} />
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
                 <Image source={logoPage} style={styles.illustration} />
             </View>
@@ -27,7 +25,6 @@ const Register = ({navigation}) => {
             <View style={styles.space(26)} />
 
             <ActionButton title="Daftar" onPress={() => handleGoTo('Login')} />
-            {/* <Button title="Daftar" /> */}
         </View>
     )
 }
@@ -39,10 +36,6 @@ const styles = {
             backgroundColor: '#fff', 
             flex: 1 
         }
-    },
-    iconBack: { 
-        width: 25, 
-        height: 25
     },
     illustration: { 
         width: 106, 

@@ -2,8 +2,15 @@ import React from 'react';
 import {Text} from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { colors } from '../../../utils';
+import ButtonIcon from './ButtonIcon';
+import RegisterLink from './RegisterLink';
 
-const Button = ({title, onPress}) => {
+const Button = ({title, onPress, type, name}) => {
+    if (type === 'icon') {
+        return <ButtonIcon name={name} onPress={onPress} />
+    } else if (type === 'textRegis') {
+        return <RegisterLink name={name} onPress={onPress} />
+    }
     return (
         <TouchableOpacity style={styles.wrapper.component} onPress={onPress}>
             <Text style={styles.text.title}>{ title }</Text>
@@ -22,7 +29,7 @@ const styles = {
     text: {
         title: { 
             color: '#fff', 
-            fontSize: 12, 
+            fontSize: 18, 
             fontWeight: 'bold', 
             textTransform: 'uppercase', 
             textAlign: 'center' 
