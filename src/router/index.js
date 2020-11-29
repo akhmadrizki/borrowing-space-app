@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Splash, Login, Register, WellcomeAuth, Main } from '../pages';
+import { Splash, Login, Register, WellcomeAuth, Main, Booking } from '../pages';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +35,14 @@ const Router = () => {
             options={{
                 headerShown: false,
             }}/>
+
+            <Stack.Screen 
+                name="Booking" 
+                component={Booking} 
+                options={{
+                headerShown: false,
+            }}/>
+            
         </Stack.Navigator>
     )
 }

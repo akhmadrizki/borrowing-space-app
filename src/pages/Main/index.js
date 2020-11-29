@@ -26,7 +26,7 @@ const Beranda = ({navigation}) => {
                 </View>
                 <View style={styles.cardInfo}>
                     <Text style={styles.cardTitle}>Ruang Kelas 3 A</Text>
-                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Register')} />
+                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Booking')} />
                 </View>
               </View>
             </View>
@@ -38,7 +38,7 @@ const Beranda = ({navigation}) => {
                 </View>
                 <View style={styles.cardInfo}>
                     <Text style={styles.cardTitle}>Ruang Aula Lt 4</Text>
-                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Register')} />
+                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Booking')} />
                 </View>
               </View>
             </View>
@@ -50,7 +50,7 @@ const Beranda = ({navigation}) => {
                 </View>
                 <View style={styles.cardInfo}>
                     <Text style={styles.cardTitle}>Ruang Meeting</Text>
-                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Register')} />
+                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Booking')} />
                 </View>
               </View>
             </View>
@@ -62,7 +62,7 @@ const Beranda = ({navigation}) => {
                 </View>
                 <View style={styles.cardInfo}>
                     <Text style={styles.cardTitle}>Studio Music</Text>
-                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Register')} />
+                    <Button type="bookingbtn" name="booking" onPress={() => handleGoTo('Booking')} />
                 </View>
               </View>
             </View>
