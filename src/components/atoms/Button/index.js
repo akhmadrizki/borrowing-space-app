@@ -2,6 +2,8 @@ import React from 'react';
 import {Text} from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { colors } from '../../../utils';
+import BookedBtn from './Booked';
+import BookingBtn from './BookingBtn';
 import ButtonIcon from './ButtonIcon';
 import RegisterLink from './RegisterLink';
 
@@ -10,6 +12,10 @@ const Button = ({title, onPress, type, name}) => {
         return <ButtonIcon name={name} onPress={onPress} />
     } else if (type === 'textRegis') {
         return <RegisterLink name={name} onPress={onPress} />
+    } else if (type === 'bookingbtn') {
+        return <BookingBtn name={name} onPress={onPress} />
+    } else if (type === 'booked') {
+        return <BookedBtn name={name} onPress={onPress} />
     }
     return (
         <TouchableOpacity style={styles.wrapper.component} onPress={onPress}>
