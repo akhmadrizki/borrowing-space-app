@@ -8,13 +8,7 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Router from './router';

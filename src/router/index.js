@@ -31,7 +31,10 @@ const Router = () => {
                     headerShown: false,
             }}/>
             
-            <Stack.Screen name="Main" component={Main} />
+            <Stack.Screen name="Main" component={Main} 
+            options={{
+                headerShown: false,
+            }}/>
         </Stack.Navigator>
     )
 }
