@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "392912327497",
+    "project_id": "rn-auth-c61d9",
+    "storage_bucket": "rn-auth-c61d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392912327497:android:02dfab7ee3a50ac5fec098",
+        "android_client_info": {
+          "package_name": "com.rnauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392912327497-4piuui7qipm9ib2jaofsto00oe8btih3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTSXrcPEfF2uOOdzMYEeG81ckpUcHe_Hg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392912327497-4piuui7qipm9ib2jaofsto00oe8btih3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

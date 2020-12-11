@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import { TextInput } from 'react-native-gesture-handler'
 import { colors } from '../../../utils';
 
-const Input = ({placeholder}) => {
+const Input = ({placeholder, secureTextEntry, onChangeText}) => {
     return (
-        <TextInput style={styles.input} placeholder={placeholder} />
+        <TextInput secureTextEntry={secureTextEntry} style={styles.input} placeholder={placeholder} onChangeText={onChangeText} />
     );
 }
 

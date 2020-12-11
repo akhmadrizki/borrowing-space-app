@@ -1,13 +1,35 @@
-import React from 'react';
-import { Text, View, Image } from 'react-native';
+import React, {useState} from 'react';
+import fireconf from '../../firebaseConf';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { Button, Input } from '../../components';
 import { logoPage } from '../../assets';
 import ActionButton from './ActionButton';
 import { colors } from '../../utils';
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const handleGoTo = screen => {
         navigation.navigate(screen);
+    }
+    // const state = {
+    //     email: '',
+    //     password: '',
+    //     error: 'Login gagal',
+    //     loading: false
+    // }
+    const onBottomPress = () => {
+        fireconf.auth().signInWithEmailAndPassword(email, password)
+        .then(onLogginSuccess)
+        // console.log(email, password)
+    }
+    const onLogginSuccess = () => {
+        // setState({
+        //     error: '',
+        //     loading:false
+        // })
+        navigation.navigate('Main')
     }
     return (
         <View style={styles.wrapper.pages}>
@@ -18,13 +40,17 @@ const Login = ({navigation}) => {
             <Text style={styles.text.desc}>Masuk ke Account Anda</Text>
             
             <View style={styles.space(25)} />
-            <Input placeholder="NIM" />
+            <Input secureTextEntry={false} placeholder="Email" value={email} onChangeText={v => setEmail(v)} />
             <View style={styles.space(18)} />
-            <Input placeholder="Password" />
+            <Input secureTextEntry={true} placeholder="Password" value={password} onChangeText={v => setPassword(v)} />
             <View style={styles.space(18)} />
 
-            <ActionButton title="Masuk" onPress={() => handleGoTo('Main')} />
+            <ActionButton title="Masuk" onPress={onBottomPress} />
+            <TouchableOpacity>
+                {/* <Text style={styles.errorText}>{ error }</Text> */}
+            </TouchableOpacity>
             <Text style={styles.text.announce}>Belum punya account?</Text>
+
             <Button type="textRegis" name="regis" onPress={() => handleGoTo('Register')} />
         </View>
     )
@@ -56,6 +82,11 @@ const styles = {
             color: colors.dark,
             textAlign: 'center'
         }
+    },
+    errorText: {
+        textAlign: 'center',
+        fontSize: 15,
+        color: 'red'
     },
     space: value => {
         return {

@@ -1,5 +1,6 @@
-import React from 'react';
-import { Text, View, Image, ScrollView } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import fireconf from '../../firebaseConf';
+import { Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { colors } from '../../utils';
@@ -8,14 +9,29 @@ import { Button } from '../../components';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const Beranda = ({navigation}) => {
+const Beranda = ({ navigation }) => {
+    const [user, setUser] = useState('');
+    
+    useEffect(() => {
+      const { currentUser } = fireconf.auth()
+      setUser(currentUser)
+    }, [])
+
     const handleGoTo = screen => {
         navigation.navigate(screen);
-    }
+  }
+  
+  const onLogout = () => {
+    fireconf.auth().signOut()
+    navigation.navigate('WellcomeAuth')
+  }
     return (
         <ScrollView showsHorizontalScrollIndicator={false}>
             <View style={styles.content}>
-                <Text style={{color: '#fff', textAlign: 'center', fontSize: 18, maxWidth: 250 }}>Cari Dan Booking Ruangan Yang Ingin Anda Pinjam</Text>
+          <Text style={{ color: '#fff', textAlign: 'center', fontSize: 24, maxWidth: 250 }}>Selamat Datang { user.email }</Text>
+              <TouchableOpacity onPress={onLogout}>
+                <Text style={{ textAlign: 'center' }}>Logout</Text>
+              </TouchableOpacity>
             </View>
 
             <View style={styles.cardsWrapper}>

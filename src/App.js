@@ -7,7 +7,8 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import fireConf from './firebaseConf';
+import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -15,12 +16,33 @@ import Router from './router';
 
 
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Router />
-    </NavigationContainer>
-  );
+class App extends Component  {
+
+  state = {
+    loggedIn:null
+  }
+
+  componentDidMount(){
+    // Your web app's Firebase configuration
+    fireConf.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          loggedIn: true
+        })
+      } else {
+        this.setState({
+          loggedIn: false
+        })
+      }
+    })
+  }
+  render() {
+    return (
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
